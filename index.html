@@ -76,9 +76,13 @@
                 if (secondNumber != 0) {
                     firstNumber /= secondNumber;
                 } else {
-                    //此處要封鎖各類按鈕
-                    //顯示無法除以0
-                    //按清除後才可繼續運行
+                    var allButtons = document.getElementsByClassName("btn");
+                    for (var i = 0; i < allButtons.length; i++) {
+                        allButtons[i].disabled = "disabled";
+                    }
+                    document.getElementById("clear").disabled = "";
+                    inputElement.value = "無法除以零";
+                    return;
                 }
             } else {
                 firstNumber = inputElement.value;
@@ -113,6 +117,13 @@
         document.getElementById("point").onclick = inputNumberButton;
         document.getElementById("clear").onclick = function() {
             inputElement.value = "";
+            cc = "";
+            firstNumber = 0;
+            secondNumber = 0;
+            var allButtons = document.getElementsByClassName("btn");
+            for (var i = 0; i < allButtons.length; i++) {
+                allButtons[i].disabled = "";
+            }
         }
 
         function inputCCButton() {
