@@ -94,7 +94,7 @@
 
         function getSecondNumber() { //取得第二個數字
             var secondNumber = "";
-            var afterCC = inputElement.value.indexOf(cc);
+            var afterCC = inputElement.value.lastIndexOf(cc);
             for (var i = afterCC + 1; i < inputElement.value.length; i++) {
                 secondNumber += inputElement.value[i];
             }
